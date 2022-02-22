@@ -6,6 +6,7 @@ type Book {
   title: String
   author: String
   prom: Boolean
+  reminders: String
 }
 
 # The "Query" type is special: it lists all of the available queries that
@@ -13,6 +14,8 @@ type Book {
 # case, the "books" query returns an array of zero or more Books (defined above).
 type Query {
   books: [Book]
+
+  getAllBooks: [Book]
 }`
 
 module.exports = typeDefs;
