@@ -23,7 +23,8 @@ const BookSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  // timestamp~~
 });
 
 //Model
