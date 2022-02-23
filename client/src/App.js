@@ -2,6 +2,8 @@ import React  from 'react';
 import './App.css';
 import {GET_BOOKS} from './graphql/Query';
 import {useQuery} from '@apollo/client';
+import Button from './components/button';
+import Form from './components/form';
 
 
 function App() {
@@ -10,11 +12,15 @@ function App() {
   if (loading) return <p>....loading!</p>
   if (error) return <p>{error.message}</p>
 return (
-<div className="container box">
- GraphQL here! {
- data?.getAllBooks.map(book=>(
-  <h1>{book.title}</h1>
- ))}
+<div>
+  <Form />
+  <div className="container box">
+    GraphQL here! {
+      data?.getAllBooks.map(book=>(
+      <h1>{book.title}</h1>
+    ))}
+    <Button />
+  </div>
 </div>
 );
 }
