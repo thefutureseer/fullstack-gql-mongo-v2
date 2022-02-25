@@ -14,3 +14,13 @@ body{
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
   }
+
+.delete-btn {
+  font-size: 20px;
+  margin-right: 14px;
+}
+
+.prom {
+  border: solid #000000 2px;
+  padding: 16px;
+}

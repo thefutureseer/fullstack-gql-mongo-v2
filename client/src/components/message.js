@@ -1,5 +1,5 @@
 import React from 'react';
-import {GET_BOOKS} from './graphql/Query';
+import {GET_BOOKS} from '../graphql/Query';
 import {useQuery} from '@apollo/client';
 
 export default function Message() {
@@ -12,10 +12,10 @@ export default function Message() {
     <div className="container box">
      GraphQL here! {
       data?.getAllBooks.map(book=>(
-       <h1>{book.title}</h1>
+       <h1 className='prom'><button className='delete-btn'>Delete </button>{book.title}</h1>
       ))
      }
-    <Button />
+    
   </div>
   )
 }

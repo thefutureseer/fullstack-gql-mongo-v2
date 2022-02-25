@@ -16,6 +16,19 @@ type Query {
   books: [Book]
 
   getAllBooks: [Book]
-}`
+}
+
+input PostInput {
+  title: String
+  reminders: Int
+  prom: Boolean
+  author: String
+}
+
+type Mutation {
+  createPost(books: PostInput): Book
+}
+
+`
 
 module.exports = typeDefs;
