@@ -12,10 +12,12 @@ const resolvers = {
   
   Mutation: {
     createPost: async (root, args, content, info) => {
-      const {title, reminders, prom, author} = args.books;
-      console.log("this is title: ", title, reminders, prom, author);
-      const post = new books({title, reminders, prom, author});
-      await post.save();
+      const {title, author} = args.books;
+      console.log("this is title: ", title, author);
+      const post = new books({title, author});
+      await post.save()
+      // .then(result=>console.log(result) return {...post._doc})
+      //.catch(err=>console.log(err) throw err);
       return post;
     }
   }

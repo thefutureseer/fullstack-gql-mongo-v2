@@ -12,7 +12,12 @@ export default function Message() {
     <div className="container box">
      GraphQL here! {
       data?.getAllBooks.map(book=>(
-       <h1 className='prom'><button className='delete-btn'>Delete </button>{book.title}</h1>
+       <div className='msg-div' key={book._id}>
+         <h1 className='prom'>
+           <button className='delete-btn'>Delete </button>
+              {book.author}, { book.title}
+         </h1>
+       </div>
       ))
      }
     

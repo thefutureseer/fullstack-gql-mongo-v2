@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 //Define the schema
 const BookSchema = new mongoose.Schema({
+  _id: String,
   title: {
     type: String,
     required: true
@@ -14,18 +15,19 @@ const BookSchema = new mongoose.Schema({
   },
   prom: {
     type: String,
-    required: true
+    // required: true
   },
   reminders: {
     type: Number,
-    required: true
+    // required: true
   },
   date: {
     type: Date,
     default: Date.now
   },
-  // timestamp~~
-});
+},
+{ timestamps: true },
+);
 
 //Model
 const Book = mongoose.model('books', BookSchema);

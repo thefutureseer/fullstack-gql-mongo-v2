@@ -1,10 +1,10 @@
-import React from 'react'
+// import React from 'react'
 
-export default class Button extends React.Component {
-  render () {
-    return (
+// export default class Button extends React.Component {
+//   render () {
+//     return (
     
-     <button type="button" class="btn btn-secondary">save</button>
-    )
-  }
-}
+//      <button type="button" className="btn btn-secondary">save</button>
+//     )
+//   }
+// }
