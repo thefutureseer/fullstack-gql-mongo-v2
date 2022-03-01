@@ -1,47 +1,49 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 // import Button from './button';
-// import { POST_BOOKS } from '../graphql/Mutations';
-// import { useMutation } from '@apollo/client';
+import { POST_BOOKS } from '../graphql/Mutations';
+import { useMutation } from '@apollo/client';
 
-export default class Form extends Component {
+export default function Form() {
+   const _id = Math.floor(Math.random()*100).toString();
+  // const title = titleRef.current.value;
 
-  constructor(props) {
-    super(props);
-    this.titleRef = React.createRef();
-    this.authorRef = React.createRef();
-  }
+  const [stateProm, setProm] = useState({
+    author: "",
+    _id: _id,
+    // title = ""
+  });
 
-  changeHandler = () => {
-    const title = this.titleRef.current.value;
-    const author = this.authorRef.current.value;
-
-    if (title.trim().length === 0 || author.trim().length === 0) {
-      return;
+  const [createPost, {error}] = useMutation(POST_BOOKS);
+  
+  const submitHandler = async (event) => {
+    event.preventDefault();
+   try {
+    const {data} = createPost({
+      variables: { ...stateProm},
+    })
+    window.location.reload()
+    } catch (err) {
+      console.error(error);
     }
-
-    const event = {
-      title,
-      author
-    }
-
-    console.log(event, " this is event new")
-
-    //end changeHandler
   }
-
- render() {
+  
+  const changeHandler = async (event) => {
+    const {name, value} = event.target;
+    // console.log(event.target, " event.tarte")
+     await setProm({...stateProm, [name]: value})
+  }
  
   return (
    <div>
-    <form className='form container box'>
+    <form onSubmit={submitHandler} className='form container box'>
       <div className="form-group">
         <label for="user-name">name</label>
-        <input  type='text' id='author' ref={this.authorRef} className="form-control" placeholder="Author"/>
+        <input  onChange={changeHandler} name="author" value={stateProm.author} className="form-control" placeholder="Author"/>
       </div>
 
       <div className="form-group">
         <label for="form-message">message</label>
-        <input  type="text" id='title' ref={this.titleRef} className="form-control" placeholder="Title"/>
+        {/* <input  type="text" id='title' ref={this.titleRef} className="form-control" placeholder="Title"/> */}
         <p className="text-danger">We'll never share your secret with anyone else.</p>
       </div>
       
@@ -49,9 +51,8 @@ export default class Form extends Component {
         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
         <label className="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
-      <button onClick={this.changeHandler} className="btn btn-primary" >Submit</button>
+      <button type='submit' className="btn btn-primary" >Submit</button>
     </form>
    </div> 
   )
-    }
 }
