@@ -3,7 +3,7 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 # This "Book" type defines the queryable fields for every book in our data source.
 type Book {
-  _id: ID
+  _id: ID!
   title: String
   author: String
 #  prom: Boolean
@@ -16,11 +16,11 @@ type Book {
 type Query {
   books: [Book]
   getAllBooks: [Book]
-  getOne(_id:ID): Book
+  getOne(_id:ID!): Book
 }
 
 input PostInput {
-  _id: ID
+  _id: ID!
   title: String
   reminders: Int
   prom: Boolean
@@ -29,7 +29,7 @@ input PostInput {
 
 type Mutation {
   createPost(books: PostInput): Book
-  deleteOnePost(_id: ID): Book
+  deleteOnePost(_id: ID!): Book
 }
 `
 

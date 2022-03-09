@@ -1,26 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import Button from './button';
 import { POST_BOOKS } from '../graphql/Mutations';
 import { useMutation } from '@apollo/client';
+// import { savePromId, getSavedPromIDs } from '../graphql/util/localStorage';
 
 export default function Form() {
    const _id = Math.floor(Math.random()*100).toString();
   // const title = titleRef.current.value;
+
+  // const [stateProm, setProm] = useState({
+  //   author: "",
+  //   _id: _id,
+  //   // title = ""
+  // });
 
   const [stateProm, setProm] = useState({
     author: "",
     _id: _id,
     // title = ""
   });
-
   const [createPost, {error}] = useMutation(POST_BOOKS);
   
+  //localstorage
+  // useEffect(() => {
+  //   return () => {
+  //     setProm(getSavedPromIDs());
+  //     savePromId(stateProm)
+  //   }
+  // }, [])
+  
+
   const submitHandler = async (event) => {
+    console.log(event, "submt handler evnt")
     event.preventDefault();
    try {
     const {data} = createPost({
       variables: { ...stateProm},
     })
+    console.log(stateProm, " this state prom");
     window.location.reload()
     } catch (err) {
       console.error(error);
@@ -29,7 +46,7 @@ export default function Form() {
   
   const changeHandler = async (event) => {
     const {name, value} = event.target;
-    // console.log(event.target, " event.tarte")
+    //  console.log(event.target, " event.target")
      await setProm({...stateProm, [name]: value})
   }
  
