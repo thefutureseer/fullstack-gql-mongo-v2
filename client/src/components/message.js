@@ -2,6 +2,7 @@ import React from 'react';
 import {GET_BOOKS} from '../graphql/Query'; 
 import { DELETE_POST } from '../graphql/Mutations';
 import {useQuery, useMutation} from '@apollo/client';
+import EditModal from './Modal';
 
 export default function Message() {
   const [deleteMuta] = useMutation(DELETE_POST);
@@ -27,12 +28,13 @@ export default function Message() {
 
   return (
     <div className="container box">
-     GraphQL here! {
+     <p> special list here: </p> {
       data?.getAllBooks.map(book=>(
        <div className='msg-div' key={book._id}>
          <h1 className='prom'>
-           <button onClick={(e)=>{e.preventDefault(); console.log("delete clicked!!"); clickHandler(book._id)}} className='delete-btn'>Delete </button>
-              {book.author}, { book.title}
+           <EditModal />
+           <button onClick={(e)=>{e.preventDefault(); console.log("delete clicked!!"); clickHandler(book._id)}} className='delete-btn'>Delete</button>
+              {book.author} { book.title}
          </h1>
        </div>
       ))
