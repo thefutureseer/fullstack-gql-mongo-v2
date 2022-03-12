@@ -30,6 +30,7 @@ input PostInput {
 type Mutation {
   createPost(books: PostInput): Book
   deleteOnePost(_id: ID!): Book
+  updateOnePost(books: PostInput): Book
 }
 `
 

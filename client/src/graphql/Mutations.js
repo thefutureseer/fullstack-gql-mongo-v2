@@ -19,3 +19,9 @@ export const DELETE_POST = gql`
    }
 `;
 
+export const UPDATE_ONE_POST = gql`
+  mutation
+    updateOnePost($_id: ID!, $author: String!) {
+      updateOnePost(_id: $_id, author: $author)
+    }`
+
