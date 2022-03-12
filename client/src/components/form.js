@@ -3,35 +3,22 @@ import { POST_BOOKS } from '../graphql/Mutations';
 import { useMutation } from '@apollo/client';
 import { v4 as uuidv4 } from 'uuid';
 
-// import { savePromId, getSavedPromIDs } from '../graphql/util/localStorage';
-
 export default function Form() {
-   const _id = uuidv4();
+  const _id = uuidv4();
 
   const [stateProm, setProm] = useState({
     author: "",
-    _id: _id,
-    // title = ""
+    _id: _id
   });
+
   const [createPost, {error}] = useMutation(POST_BOOKS);
-  
-  //localstorage
-  // useEffect(() => {
-  //   return () => {
-  //     setProm(getSavedPromIDs());
-  //     savePromId(stateProm)
-  //   }
-  // }, [])
-  
 
   const submitHandler = async (event) => {
-    console.log(event, "submt handler evnt")
     event.preventDefault();
-   try {
-    const {data} = createPost({
+    try {
+     const {data} = createPost({
       variables: { ...stateProm},
-    })
-    console.log(stateProm, " this state prom");
+     })
     window.location.reload()
     } catch (err) {
       console.error(error);
@@ -40,8 +27,7 @@ export default function Form() {
   
   const changeHandler = async (event) => {
     const {name, value} = event.target;
-    //  console.log(event.target, " event.target")
-     await setProm({...stateProm, [name]: value})
+    await setProm({...stateProm, [name]: value})
   }
  
   return (

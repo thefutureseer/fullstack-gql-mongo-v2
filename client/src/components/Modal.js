@@ -1,5 +1,9 @@
+import { useMutation } from '@apollo/client';
 import React from 'react';
 import Modal from 'react-modal';
+import { UPDATE_ONE_POST } from '../graphql/Mutations';
+
+Modal.setAppElement('#root');
 
 const customStyles = {
   content: {
@@ -13,24 +17,42 @@ const customStyles = {
   },
 };
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-// Modal.setAppElement('#yourAppElement');
-
-export default function EditModal() {
+export default function EditModal(prop) {
+  console.log(prop.id, " this prop.id")
+  
+  console.log()
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
-
+  const [state, setState] = React.useState({
+    author: "",
+    _id: prop.id
+  })
+  console.log( " state ? ")
+  
+  //open/close modal react functions
   function openModal() {
     setIsOpen(true);
   }
-
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     subtitle.style.color = '#f00';
   }
-
   function closeModal() {
     setIsOpen(false);
+  }
+  
+  const [updateOnePost] = useMutation(UPDATE_ONE_POST);
+  
+  const clickHandler = () => {
+    updateOnePost({
+      variables: {...state}
+    })
+  }
+  
+  const changeHandler = async (event) => {
+    const {name, value} = event.target;
+    console.log(name, " name this value ", value);
+    await setState({...state, [name]:value})
   }
 
   return (
@@ -45,13 +67,13 @@ export default function EditModal() {
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
         <button onClick={closeModal}>close</button>
-        <div>edit secret</div>
+        <div className='secret'>edit secret</div>
         <form>
-          <input />
-          <button>tab navigation</button>
+          <input onChange={changeHandler} name='author' value={state.author} />
+          {/* <button>tab navigation</button>
           <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
+          <button>inside</button> */}
+          <button onClick={()=>{clickHandler()}}>the modal</button>
         </form>
       </Modal>
     </div>

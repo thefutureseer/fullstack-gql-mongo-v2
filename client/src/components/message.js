@@ -32,8 +32,8 @@ export default function Message() {
       data?.getAllBooks.map(book=>(
        <div className='msg-div' key={book._id}>
          <h1 className='prom'>
-           <EditModal />
-           <button onClick={(e)=>{e.preventDefault(); console.log("delete clicked!!"); clickHandler(book._id)}} className='delete-btn'>Delete</button>
+           <EditModal id={book._id}/>
+           <button onClick={(e)=>{e.preventDefault(); clickHandler(book._id)}} className='delete-btn'>Delete</button>
               {book.author} { book.title}
          </h1>
        </div>
