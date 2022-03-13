@@ -16,9 +16,8 @@ const resolvers = {
 
   Mutation: {
     createPost: (root, args, context) => {
-      let {_id, author} = args.books;
-      console.log("this is id & author: ",_id, author);
-      let post = books.create({_id, author})
+      // let {_id, author, title} = args.books;
+      let post = books.create( args.books )
       .then(result=>{console.log(result); return {...post._doc}})
       .catch(err=>{console.log(err); throw err});
 

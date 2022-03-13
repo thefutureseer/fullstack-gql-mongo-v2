@@ -7,8 +7,9 @@ export default function Form() {
   const _id = uuidv4();
 
   const [stateProm, setProm] = useState({
+    _id: _id,
     author: "",
-    _id: _id
+    title: ""
   });
 
   const [createPost, {error}] = useMutation(POST_BOOKS);
@@ -16,9 +17,9 @@ export default function Form() {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-     const {data} = createPost({
-      variables: { ...stateProm},
-     })
+      createPost({
+       variables: { ...stateProm},
+      })
     window.location.reload()
     } catch (err) {
       console.error(error);
@@ -29,13 +30,18 @@ export default function Form() {
     const {name, value} = event.target;
     await setProm({...stateProm, [name]: value})
   }
- 
+
   return (
    <div>
     <form onSubmit={submitHandler} className='form container box'>
       <div >
         <label >name</label>
         <input  onChange={changeHandler} name="author" value={stateProm.author} className="form-control" placeholder="Author"/>
+      </div>
+
+      <div >
+        <label >title</label>
+        <input  onChange={changeHandler} name="title" value={stateProm.title} className="form-control" placeholder="title"/>
       </div>
 
       <div >

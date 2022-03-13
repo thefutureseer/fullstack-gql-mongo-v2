@@ -18,16 +18,12 @@ const customStyles = {
 };
 
 export default function EditModal(prop) {
-  console.log(prop.id, " this prop.id")
-  
-  console.log()
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [state, setState] = React.useState({
     author: "",
     _id: prop.id
   })
-  console.log( " state ? ")
   
   //open/close modal react functions
   function openModal() {
@@ -51,7 +47,6 @@ export default function EditModal(prop) {
   
   const changeHandler = async (event) => {
     const {name, value} = event.target;
-    console.log(name, " name this value ", value);
     await setState({...state, [name]:value})
   }
 

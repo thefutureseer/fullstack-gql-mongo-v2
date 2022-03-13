@@ -34,7 +34,7 @@ export default function Message() {
          <h1 className='prom'>
            <EditModal id={book._id}/>
            <button onClick={(e)=>{e.preventDefault(); clickHandler(book._id)}} className='delete-btn'>Delete</button>
-              {book.author} { book.title}
+             Author: {book.author}, Title: {book.title}
          </h1>
        </div>
       ))
