@@ -14,7 +14,7 @@ const BookSchema = new mongoose.Schema({
     required: true
   },
   prom: {
-    type: String,
+    type: Boolean,
     // required: true
   },
   reminders: {

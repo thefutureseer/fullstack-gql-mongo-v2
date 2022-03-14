@@ -6,11 +6,11 @@ import EditModal from './Modal';
 
 export default function Message() {
   const [deleteMuta] = useMutation(DELETE_POST);
-
+  
   const clickHandler = (_id) => {  
-  //  if (deleting) return;
-
-   deleteMuta({
+    //  if (deleting) return;
+    
+    deleteMuta({
      variables: {_id},
      update(cache) {
        const normalizeId = cache.identify({_id, __type: 'Book'});
@@ -34,7 +34,7 @@ export default function Message() {
          <h1 className='prom'>
            <EditModal id={book._id}/>
            <button onClick={(e)=>{e.preventDefault(); clickHandler(book._id)}} className='delete-btn'>Delete</button>
-             Author: {book.author}, Title: {book.title}
+            Author: {book.author}, Title: {book.title}, prom: {book.prom.toString()}
          </h1>
        </div>
       ))

@@ -5,6 +5,7 @@ export const GET_BOOKS = gql`
         _id
         title
         author
+        prom
       }
     }
 `

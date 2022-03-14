@@ -9,7 +9,8 @@ export default function Form() {
   const [stateProm, setProm] = useState({
     _id: _id,
     author: "",
-    title: ""
+    title: "",
+    prom: false
   });
 
   const [createPost, {error}] = useMutation(POST_BOOKS);
@@ -18,30 +19,46 @@ export default function Form() {
     event.preventDefault();
     try {
       createPost({
-       variables: { ...stateProm},
+        variables: { ...stateProm},
       })
-    window.location.reload()
+      window.location.reload()
     } catch (err) {
       console.error(error);
     }
   }
   
   const changeHandler = async (event) => {
+    
     const {name, value} = event.target;
+    // !stateProm.prom ? stateProm.prom = true : stateProm.prom = false;
+      console.log(stateProm.prom, " setstate prom")
+
     await setProm({...stateProm, [name]: value})
+    console.log(stateProm, " this is stateProm")
   }
 
   return (
    <div>
     <form onSubmit={submitHandler} className='form container box'>
       <div >
-        <label >name</label>
+        <label>name</label>
         <input  onChange={changeHandler} name="author" value={stateProm.author} className="form-control" placeholder="Author"/>
       </div>
 
       <div >
-        <label >title</label>
+        <label>title</label>
         <input  onChange={changeHandler} name="title" value={stateProm.title} className="form-control" placeholder="title"/>
+      </div>
+
+      {/* <div >
+        <input  onChange={changeHandler} name="prom" value={stateProm.prom} className="form-control" placeholder="true"/>
+      </div> */}
+
+      <div className="form-check">
+       <label className="form-check-label">
+        <input type="checkbox"  onChange={()=>{return !stateProm.prom ? stateProm.prom = true : stateProm.prom = false;}} name="prom" value={stateProm.prom} className="form-check-input" />
+        prom
+       </label>
       </div>
 
       <div >

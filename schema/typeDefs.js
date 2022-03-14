@@ -6,8 +6,8 @@ type Book {
   _id: ID!
   author: String
   title: String
-  reminders: Int
   prom: Boolean
+  reminders: Int
 }
 
 # The "Query" type is special: it lists all of the available queries that
@@ -24,8 +24,8 @@ input PostInput {
   _id: ID!
   author: String
   title: String
-  reminders: Int
   prom: Boolean
+  reminders: Int
 }
 
 type Mutation {

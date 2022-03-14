@@ -2,11 +2,12 @@ import { gql } from "@apollo/client";
 
 export const POST_BOOKS = gql`
   mutation 
-    createPost($_id:ID!, $author:String!, $title:String) {
-     createPost(books: {_id:$_id, author:$author, title:$title}) {
+    createPost($_id:ID!, $author:String!, $title:String, $prom:Boolean) {
+     createPost(books: {_id:$_id, author:$author, title:$title, prom:$prom}) {
       _id
       author
       title
+      prom
      }
     }
 `;
