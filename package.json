@@ -4,9 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "develop": "concurrently \"cd client && npm run start\" \"cd . npm run start\"",
+    "develop": "concurrently \"cd client && npm run start\" \"cd . && npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
     "dev": "nodemon server.js"
   },
   "keywords": [],
