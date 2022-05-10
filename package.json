@@ -6,7 +6,7 @@
   "scripts": {
     "develop": "concurrently \"cd client && npm run start\" \"cd . && npm run dev\"",
     "install": "cd . && npm i && cd ./client && npm i",
-    "dev": "nodemon server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
