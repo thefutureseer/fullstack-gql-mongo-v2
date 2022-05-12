@@ -10,6 +10,10 @@
     "develop": "concurrently \"npm run server\" \"cd client && npm run start\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix && npm run build --prefix client"
   },
+  "engines": {
+    "npm": "8.3.0",
+    "node": "v17.3.1"
+  },
   "keywords": [],
   "author": "Daniel T",
   "license": "MIT",
