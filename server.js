@@ -22,12 +22,9 @@ app.use(express.json());
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
   //set statc folder
-  app.use(express.static('./client/build'));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirman, 'client', 'build', 'index.html'))
-  });
+  app.use(express.static(path.join(__dirname, './client/build/index.html')));
 }
+
 
 db.once('open', () => {
   app.listen(PORT, () => {
