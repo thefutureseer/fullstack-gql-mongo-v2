@@ -64,7 +64,7 @@ export default function Form() {
       <div >
         <label >Sincere message</label>
         {/* <input  type="text" id='title' ref={this.titleRef} className="form-control" placeholder="Title"/> */}
-        <p className="text-danger">We'll never share your secret with anyone else.</p>
+        <p className="sin-msg m-2 text-danger">We'll never share your secret with anyone else.</p>
       </div>
       
       <div className="form-check">

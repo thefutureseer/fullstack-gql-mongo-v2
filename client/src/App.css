@@ -26,10 +26,22 @@ body{
   margin-right: 14px;
 }
 
+#edit-btn {
+  height: 2.5em;
+  border: black solid 3px;
+  font-size: 23px;
+  margin-right: 14px;
+}
+
 .prom {
+  display: flex;
   border: solid #000000 2px;
   padding: 16px;
   padding-bottom: 21px;
+}
+
+.prom-div {
+  margin: 4px;
 }
 
 .secret {
