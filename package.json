@@ -12,7 +12,7 @@
   },
   "engines": {
     "npm": "8.3.0",
-    "node": "v17.3.1"
+    "node": "17.3.1"
   },
   "keywords": [],
   "author": "Daniel T",
