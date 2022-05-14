@@ -46,7 +46,6 @@ span {
   padding: 16px;
   padding-bottom: 21px;
   overflow-y: scroll;
-  /* height: 100px; */
   resize: none; 
 }
 
@@ -58,10 +57,3 @@ span {
 .secret {
   color: #f00;
 }
-
-/* @media screen and (max-width: 561px) {
-  #dbl-wide {
-    height: 2em;
-    display: flex;
-  }
-} */
