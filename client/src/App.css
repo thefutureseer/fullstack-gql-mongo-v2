@@ -1,6 +1,5 @@
 body{
   background-color: gray;
-  display: flex;
   }
 
 .form {
@@ -28,10 +27,17 @@ body{
 }
 
 #edit-btn {
-  height: 2.5em;
+  height: 67px;
   border: black solid 3px;
   font-size: 23px;
   margin-right: 14px;
+}
+
+span {
+  display: block;
+  border: solid 3px #000000;
+  padding: 7px;
+  background-color: bisque;
 }
 
 .prom {
@@ -39,12 +45,23 @@ body{
   border: solid #000000 2px;
   padding: 16px;
   padding-bottom: 21px;
+  overflow-y: scroll;
+  /* height: 100px; */
+  resize: none; 
 }
 
 .prom-div {
   margin: 4px;
+  border: solid 2px black;
 }
 
 .secret {
   color: #f00;
 }
+
+/* @media screen and (max-width: 561px) {
+  #dbl-wide {
+    height: 2em;
+    display: flex;
+  }
+} */

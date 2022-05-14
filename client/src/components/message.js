@@ -34,9 +34,9 @@ export default function Message() {
          <h1 className='prom'>
            <EditModal className='prom-div' id={book._id}/>
            <button onClick={(e)=>{e.preventDefault(); clickHandler(book._id)}} className='prom-div delete-btn'>Delete</button>
-            <div className='prom-div'>Author: {book.author},</div> 
-            <div className='prom-div'>Title: {book.title},</div> 
-            <div className='prom-div'>prom: {book.prom.toString()}</div>
+            <div className='prom-div'><div><p>prom</p> <span>{book.prom.toString()}</span></div></div>
+            <div className='prom-div'><div><p>Author</p> <span>{book.author}</span></div></div> 
+            <div className='prom-div'><div><p>Note</p> <span>{book.title}</span></div></div> 
          </h1>
        </div>
       ))

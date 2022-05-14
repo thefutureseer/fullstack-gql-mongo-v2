@@ -6,7 +6,7 @@ import Form from './components/form';
 
 function App() {
 return (
-<div>
+<div id='double-wide'>
   <Form />
   <Message />
 </div>
