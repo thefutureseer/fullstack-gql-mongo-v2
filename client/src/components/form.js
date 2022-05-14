@@ -41,13 +41,13 @@ export default function Form() {
    <div>
     <form onSubmit={submitHandler} className='form container box'>
       <div >
-        <label>name</label>
-        <input  onChange={changeHandler} name="author" value={stateProm.author} className="form-control" placeholder="Author"/>
+        <label>names</label>
+        <input  onChange={changeHandler} name="author" value={stateProm.author} className="form-control" placeholder="names"/>
       </div>
 
       <div >
-        <label>title</label>
-        <input  onChange={changeHandler} name="title" value={stateProm.title} className="form-control" placeholder="title"/>
+        <label>note</label>
+        <input  onChange={changeHandler} name="title" value={stateProm.title} className="form-control" placeholder="note"/>
       </div>
 
       {/* <div >
@@ -57,13 +57,12 @@ export default function Form() {
       <div className="form-check">
        <label className="form-check-label">
         <input type="checkbox"  onChange={()=>{return !stateProm.prom ? stateProm.prom = true : stateProm.prom = false;}} name="prom" value={stateProm.prom} className="form-check-input" />
-        prom
+         <p>prom</p>
        </label>
       </div>
 
       <div >
         <label >Sincere message</label>
-        {/* <input  type="text" id='title' ref={this.titleRef} className="form-control" placeholder="Title"/> */}
         <p className="sin-msg m-2 text-danger">We'll never share your secret with anyone else.</p>
       </div>
       

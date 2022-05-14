@@ -41,7 +41,7 @@ export default function Message() {
        </div>
       ))
      }
-    
+    <p> End of list </p>
   </div>
   )
 };

@@ -2,6 +2,11 @@ body{
   background-color: gray;
   }
 
+header {
+  text-align: center;
+  margin: 7px;
+}
+
 .form {
  padding:130px;
 
@@ -56,4 +61,10 @@ span {
 
 .secret {
   color: #f00;
+}
+
+footer {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
