@@ -1,7 +1,7 @@
 import React  from 'react';
-import './App.css';
-import Message from './components/message';
-import Form from './components/form';
+import '../style/App.css';
+import Message from './message';
+import Form from './form';
 
 
 function App() {

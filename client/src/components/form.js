@@ -26,9 +26,9 @@ export default function Form() {
       console.error(error);
     }
   }
-  
+
   const changeHandler = async (event) => {
-    
+
     const {name, value} = event.target;
     // !stateProm.prom ? stateProm.prom = true : stateProm.prom = false;
       console.log(stateProm.prom, " setstate prom")

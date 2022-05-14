@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './style/index.css';
+import App from './components/App';
+import reportWebVitals from './test/reportWebVitals';
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client'
 
 const client = new ApolloClient({
