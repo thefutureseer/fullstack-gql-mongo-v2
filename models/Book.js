@@ -1,3 +1,4 @@
+"use strict";
 const mongoose = require('mongoose');
 //If we want to do new Schema instead use:
 // const { Schema } = mongoose;

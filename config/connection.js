@@ -1,3 +1,4 @@
+"use strict";
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGODB || 'mongodb://127.0.0.1:27017/myFirstDatabase',

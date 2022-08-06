@@ -1,3 +1,4 @@
+"use strict";
 const { findOneAndUpdate } = require('../models/Book');
 const books = require('../models/Book')
 
